@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>Blog</title>
 		<link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="<?= site_url(); ?>assets/css/style.css">
 
 		<script src="//cdn.ckeditor.com/4.9.2/standard/ckeditor.js"></script>
 	</head>
