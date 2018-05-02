@@ -8,6 +8,7 @@ class Post_model extends CI_Model
     public function get_posts($slug = FALSE)
     {
         if ($slug === FALSE) {
+            $this->db->order_by('id', 'DESC');
             $query = $this->db->get('posts');
 
             return $query->result_array();
@@ -16,5 +17,18 @@ class Post_model extends CI_Model
         $query = $this->db->get_where('posts', ['slug' => $slug]);
 
         return $query->row_array();
+    }
+
+    public function create_post()
+    {
+        $slug = url_title($this->input->post('title'));
+
+        $data = [
+            'title' => $this->input->post('title'),
+            'slug' => $slug,
+            'body' => $this->input->post('body')
+        ];
+
+        return $this->db->insert('posts', $data);
     }
 }
