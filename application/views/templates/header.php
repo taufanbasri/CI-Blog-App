@@ -19,9 +19,11 @@
 					<li><a href="/">Home</a></li>
 					<li><a href="/about">About</a></li>
 					<li><a href="/posts">Blog</a></li>
+					<li><a href="<?= base_url(); ?>categories">Category</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?= base_url(); ?>posts/create">Create Post</a></li>
+					<li><a href="<?= base_url(); ?>categories/create">Create Category</a></li>
 				</ul>
 			</div>
 		  </div>
