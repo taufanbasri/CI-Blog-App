@@ -6,6 +6,8 @@
 
 <hr>
 
+<a class="btn btn-default" href="/posts/edit/<?= $post['slug'] ?>">Edit</a>
+
 <?= form_open('/posts/delete/' . $post['id']) ?>
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
