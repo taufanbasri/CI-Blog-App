@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Blog</title>
 		<link rel="stylesheet" href="https://bootswatch.com/3/flatly/bootstrap.min.css">
+		<link rel="stylesheet" href="/assets/css/style.css">
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse">
