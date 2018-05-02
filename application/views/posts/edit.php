@@ -10,7 +10,7 @@
   </div>
   <div class="form-group">
     <label>Body</label>
-    <textarea class="form-control" name="body"><?= $post['body']; ?></textarea>
+    <textarea class="form-control" name="body" id="editor1"><?= $post['body']; ?></textarea>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
