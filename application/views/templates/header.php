@@ -63,3 +63,6 @@
 			<?php if($this->session->flashdata('user_loggedout')): ?>
 				<p class="alert alert-success"><?= $this->session->flashdata('user_loggedout');  ?></p>
 			<?php endif; ?>
+			<?php if($this->session->flashdata('category_deleted')): ?>
+				<p class="alert alert-success"><?= $this->session->flashdata('category_deleted');  ?></p>
+			<?php endif; ?>
