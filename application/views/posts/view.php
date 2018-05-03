@@ -4,14 +4,15 @@
 <div class="post-body">
     <?= $post['body']; ?>
 </div>
-
 <hr>
 
-<a class="btn btn-default" href="/posts/edit/<?= $post['slug'] ?>">Edit</a>
+<?php if ($this->session->userdata('user_id') == $post['user_id']): ?>
+	<a class="btn btn-default" href="/posts/edit/<?= $post['slug'] ?>">Edit</a>
 
-<?= form_open('/posts/delete/' . $post['id']) ?>
-    <button type="submit" class="btn btn-danger">Delete</button>
-</form>
+	<?= form_open('/posts/delete/' . $post['id']) ?>
+		<button type="submit" class="btn btn-danger">Delete</button>
+	</form>
+<?php endif; ?>
 
 <hr>
 
