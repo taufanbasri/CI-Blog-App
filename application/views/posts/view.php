@@ -12,3 +12,38 @@
 <?= form_open('/posts/delete/' . $post['id']) ?>
     <button type="submit" class="btn btn-danger">Delete</button>
 </form>
+
+<hr>
+
+<h3>Add comment</h3>
+
+<?= validation_errors(); ?>
+
+<?= form_open('comments/create/' .$post['id']); ?>
+	<div class="form-group">
+	  <label>Name</label>
+	  <input type="text" class="form-control" name="name">
+	</div>
+	<div class="form-group">
+	  <label>Email</label>
+	  <input type="email" class="form-control" name="email">
+	</div>
+	<div class="form-group">
+	  <label>Body</label>
+	  <textarea name="body" class="form-control"></textarea>
+	</div>
+	<input type="hidden" name="slug" value="<?= $post['slug']; ?>">
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<hr>
+<h3>Comment</h3>
+<?php if($comments): ?>
+	<?php foreach($comments as $comment): ?>
+		<div class="well well-md">
+		  <h5><?= $comment['body']; ?> [by <strong><?= $comment['name']  ?></strong>]</h5>
+		</div>
+	<?php endforeach; ?>
+<?php else: ?>
+	<p>No comment to display.</p>
+<?php endif; ?>
