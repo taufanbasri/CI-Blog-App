@@ -24,9 +24,26 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="<?= base_url(); ?>posts/create">Create Post</a></li>
 					<li><a href="<?= base_url(); ?>categories/create">Create Category</a></li>
+					<li><a href="<?= base_url(); ?>users/register">Register</a></li>
 				</ul>
 			</div>
 		  </div>
 		</nav>
 
 		<div class="container">
+			<!-- Flash Messages -->
+			<?php if($this->session->flashdata('user_registered')): ?>
+				<p class="alert alert-success"><?= $this->session->flashdata('user_registered');  ?></p>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('post_created')): ?>
+				<p class="alert alert-success"><?= $this->session->flashdata('post_created');  ?></p>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('post_updated')): ?>
+				<p class="alert alert-success"><?= $this->session->flashdata('post_updated');  ?></p>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('category_created')): ?>
+				<p class="alert alert-success"><?= $this->session->flashdata('category_created');  ?></p>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('post_deleted')): ?>
+				<p class="alert alert-danger"><?= $this->session->flashdata('post_deleted');  ?></p>
+			<?php endif; ?>

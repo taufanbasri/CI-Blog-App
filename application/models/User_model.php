@@ -3,10 +3,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User_model extends CI_Model{
 
-  public function __construct()
+  public function register($enc_password)
   {
-    parent::__construct();
-    //Codeigniter : Write Less Do More
+    $data = [
+		'name' => $this->input->post('name'),
+		'zipcode' => $this->input->post('zipcode'),
+		'email' => $this->input->post('email'),
+		'username' => $this->input->post('username'),
+		'password' => $enc_password
+	];
+
+	return $this->db->insert('users', $data);
   }
 
 }
