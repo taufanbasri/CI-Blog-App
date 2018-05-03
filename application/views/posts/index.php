@@ -14,3 +14,7 @@
 	  </div>
 	</div>
 <?php endforeach; ?>
+
+<div class="pagination-links text-center">
+	<?= $this->pagination->create_links(); ?>
+</div>
