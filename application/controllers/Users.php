@@ -82,6 +82,18 @@ class Users extends CI_Controller{
 
   }
 
+  public function logout()
+  {
+	// Unset user data
+	$this->session->unset_userdata('logged_in');
+	$this->session->unset_userdata('user_id');
+	$this->session->unset_userdata('username');
+
+	$this->session->set_flashdata('user_loggedout', 'You are logged out!');
+
+	redirect('users/login');
+  }
+
   function check_email_exists($email)
   {
   	$this->form_validation->set_message('check_email_exists', 'The email is already exists.');

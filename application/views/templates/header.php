@@ -26,6 +26,7 @@
 					<li><a href="<?= base_url(); ?>categories/create">Create Category</a></li>
 					<li><a href="<?= base_url(); ?>users/login">Login</a></li>
 					<li><a href="<?= base_url(); ?>users/register">Register</a></li>
+					<li><a href="<?= base_url(); ?>users/logout">Logout</a></li>
 				</ul>
 			</div>
 		  </div>
@@ -53,4 +54,7 @@
 			<?php endif; ?>
 			<?php if($this->session->flashdata('login_failed')): ?>
 				<p class="alert alert-danger"><?= $this->session->flashdata('login_failed');  ?></p>
+			<?php endif; ?>
+			<?php if($this->session->flashdata('user_loggedout')): ?>
+				<p class="alert alert-success"><?= $this->session->flashdata('user_loggedout');  ?></p>
 			<?php endif; ?>
