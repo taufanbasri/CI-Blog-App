@@ -8,8 +8,10 @@ class Users extends CI_Controller{
 	  $data['title'] = 'Sign Up';
 
 	  $this->form_validation->set_rules('name', 'Name', 'required');
-	  $this->form_validation->set_rules('username', 'Userame', 'required|is_unique[users.username]');
-	  $this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]');
+	  $this->form_validation->set_rules('username', 'Userame', 'required|is_unique[users.username]', [
+		  'is_unique' => 'Username is already exists'
+	  ]);
+	  $this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
 	  $this->form_validation->set_rules('password', 'Password', 'required');
 	  $this->form_validation->set_rules('password_confirmation', 'Confirm Password', 'required|matches[password]');
 
@@ -28,6 +30,18 @@ class Users extends CI_Controller{
 
 		redirect('posts');
 	  }
+
+  }
+
+  function check_email_exists($email)
+  {
+  	$this->form_validation->set_message('check_email_exists', 'The email is already exists.');
+
+	if ($this->user_model->check_email_exists($email)) {
+		return true;
+	} else {
+		return false;
+	}
 
   }
 
